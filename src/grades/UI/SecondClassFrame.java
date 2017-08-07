@@ -77,8 +77,9 @@ public class SecondClassFrame extends JFrame {
         buttonPanel.add(addButton);
         buttonPanel.add(deleteButton);
         buttonPanel.add(editButton);
-        buttonPanel.add(backButton);
         buttonPanel.add(finalButton);
+        buttonPanel.add(backButton);
+        
         
         return buttonPanel;
     }
