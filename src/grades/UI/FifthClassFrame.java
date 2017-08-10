@@ -79,6 +79,10 @@ public class FifthClassFrame extends JFrame{
             doEditButton();
         });
         
+        JButton finalButton = new JButton("Final Grade");
+        finalButton.setToolTipText("Calculate Grade Total");
+        finalButton.addActionListener((ActionEvent) -> { doFinalButton();});
+        
         JButton backButton = new JButton("Back");
         backButton.addActionListener((ActionEvent) -> {dispose();});
         
@@ -108,6 +112,10 @@ public class FifthClassFrame extends JFrame{
         editForm.setVisible(true);
     }
     
+    public void doFinalButton(){
+        FinalGradeFormFifthC finalForm = new FinalGradeFormFifthC(this, "Final Grade", true);
+        finalForm.setVisible(true);
+    }
     
     
         public void fireDatabaseUpdates(){

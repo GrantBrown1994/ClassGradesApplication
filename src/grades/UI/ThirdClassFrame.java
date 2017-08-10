@@ -76,12 +76,16 @@ public class ThirdClassFrame extends JFrame {
         editButton.setToolTipText("Click Here to Edit A Grade");
         editButton.addActionListener((ActionEvent) -> {doEditButton();});
         
+        JButton finalButton = new JButton("Final Grade");
+        finalButton.addActionListener((ActionEvent) -> {doFinalButton();});
+        
         JButton backButton = new JButton("Back");
         backButton.addActionListener((ActionEvent) -> {dispose();});
         
         buttonPanel.add(addButton);
         buttonPanel.add(deleteButton);
         buttonPanel.add(editButton);
+        buttonPanel.add(finalButton);
         buttonPanel.add(backButton);
         
         return buttonPanel;
@@ -102,6 +106,11 @@ public class ThirdClassFrame extends JFrame {
     public void doEditButton(){
         TCEditForm editForm = new TCEditForm(this, "Edit Grads", true);
         editForm.setVisible(true);
+    }
+    
+    public void doFinalButton(){
+        FinalGradeFormTC finalForm = new FinalGradeFormTC(this, "Final Grade", true);
+        finalForm.setVisible(true);
     }
     
         public void fireDatabaseUpdates(){

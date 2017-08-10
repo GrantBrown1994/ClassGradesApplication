@@ -21,15 +21,15 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.WindowConstants;
 
+
 /**
  *
  * @author grant
  */
-public class FinalGradeFormSC extends JDialog{
-    
+public class FinalGradeFormFourthC extends JDialog{
 
     
-    public FinalGradeFormSC(JFrame parent, String title, boolean modal ){
+    public FinalGradeFormFourthC(JFrame parent, String title, boolean modal ){
     
        super(parent,title,modal);
        componentsInside();
@@ -38,22 +38,25 @@ public class FinalGradeFormSC extends JDialog{
     
     private JTextField gradeField;
     private JButton backButton;
-    private double grades_2;
+    private double grades;
+  
     
     
     public JPanel componentsInside(){
 
        gradeField = new JTextField();
+      
         
 
         
         this.setDefaultCloseOperation (WindowConstants.DISPOSE_ON_CLOSE);
-        Dimension d1 = new Dimension (200,100);
-        Dimension d2 = new Dimension (500,300); //(width,height
+        Dimension d1 = new Dimension (100,20);
+        Dimension d2 = new Dimension (200,100); //(width, height)
+        Dimension d3 = new Dimension (500,300);
         this.setLayout(new BorderLayout());
-        this.setMinimumSize(d2);
-        gradeField.setPreferredSize(d1);
-        gradeField.setMinimumSize(d1);
+        this.setMinimumSize(d3);
+        gradeField.setPreferredSize(d2);
+        gradeField.setMinimumSize(d2);
         
        
 
@@ -62,10 +65,11 @@ public class FinalGradeFormSC extends JDialog{
         
         productPanel.add(new JLabel("Grade"), getConstraints(0, 0, GridBagConstraints.LINE_END));
         productPanel.add(gradeField, getConstraints(1, 0, GridBagConstraints.LINE_START));
+
         
         try{
-        grades_2 = Database.getSClassFinalGrades();
-        gradeField.setText(Double.toString(grades_2));}
+        grades = Database.getFourthClassFinalGrades();
+        gradeField.setText(Double.toString(grades));}
         catch(SQLException e){
             System.err.println(e);
         }
@@ -94,4 +98,5 @@ public class FinalGradeFormSC extends JDialog{
    
 }
 
+    
 

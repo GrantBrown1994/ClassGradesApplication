@@ -141,23 +141,23 @@ public class GradeForm extends JDialog {
                grade.isEmpty()){
        
            JOptionPane.showMessageDialog(this, "Incorrect or Missing Data" , "Data Incorrect", JOptionPane.ERROR_MESSAGE);
-       }else{
+       }  else if(assignment.equalsIgnoreCase("hw") ||assignment.equalsIgnoreCase("homework") ||
+               assignment.equalsIgnoreCase("test") || assignment.equalsIgnoreCase("quiz")
+               || assignment.equalsIgnoreCase("final")){
            try{
            Integer.parseInt(assignmentid);
-            grades = Double.parseDouble(grade);
-           if(grades > 1){
-            JOptionPane.showMessageDialog(this, "Grade Entry Must be Less than or Equal to 1" , 
-                    "Data Incorrect", JOptionPane.ERROR_MESSAGE);
-               
-           }
-           
+           Double.parseDouble(grade);
            } catch(NumberFormatException e){
                JOptionPane.showMessageDialog(this, "Incorrect Grade" , "Data Incorrect", JOptionPane.ERROR_MESSAGE);
                return false;
-       }
+       }}
+           else{
+                    JOptionPane.showMessageDialog(this, "Must enter HW, Test, Quiz, or Final as Assignment Name",
+                    "Data Incorrect", JOptionPane.ERROR_MESSAGE);
+                   return false;
+                   }
        
-       
-   }
+   
        return true;
    }
    

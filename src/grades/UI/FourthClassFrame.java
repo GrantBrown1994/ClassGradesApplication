@@ -77,12 +77,16 @@ public class FourthClassFrame extends JFrame {
             doEditButton();
         });
         
+        JButton finalButton = new JButton("Final Grade");
+        finalButton.addActionListener((ActionEvent) -> {doFinalButton();});
+        
         JButton backButton = new JButton("Back");
         backButton.addActionListener((ActionEvent) -> {dispose();});
         
         buttonPanel.add(addButton);
         buttonPanel.add(deleteButton);
         buttonPanel.add(editButton);
+        buttonPanel.add(finalButton);
         buttonPanel.add(backButton);
         
         return buttonPanel;
@@ -106,7 +110,10 @@ public class FourthClassFrame extends JFrame {
         editForm.setVisible(true);
     }
     
-    
+    public void doFinalButton(){
+        FinalGradeFormFourthC finalForm = new FinalGradeFormFourthC(this, "Final Grade", true);
+        finalForm.setVisible(true);
+    }
     
         public void fireDatabaseUpdates(){
         model.databaseUploader();

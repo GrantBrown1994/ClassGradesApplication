@@ -147,17 +147,23 @@ public class FourCGradeForm extends JDialog {
                grade.isEmpty()){
        
            JOptionPane.showMessageDialog(this, "Incorrect or Missing Data" , "Data Incorrect", JOptionPane.ERROR_MESSAGE);
-       }else{
+       }  else if(assignment.equalsIgnoreCase("hw") ||assignment.equalsIgnoreCase("homework") ||
+               assignment.equalsIgnoreCase("test") || assignment.equalsIgnoreCase("quiz")
+               || assignment.equalsIgnoreCase("final")){
            try{
            Integer.parseInt(assignmentid);
            Double.parseDouble(grade);
            } catch(NumberFormatException e){
                JOptionPane.showMessageDialog(this, "Incorrect Grade" , "Data Incorrect", JOptionPane.ERROR_MESSAGE);
                return false;
-       }
+       }}
+           else{
+                    JOptionPane.showMessageDialog(this, "Must enter HW, Test, Quiz, or Final as Assignment Name",
+                    "Data Incorrect", JOptionPane.ERROR_MESSAGE);
+                   return false;
+                   }
        
-       
-   }
+   
        return true;
    }
    
